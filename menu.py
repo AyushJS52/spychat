@@ -1,7 +1,9 @@
 from add_status import status_message
+from add_friend import add_friend
 
 
 def start_chat():
+    from spy_details import current_status_message
     show_menu = True
     while show_menu:
         menu_choices = "What do you want to do? \n 1. Add a status update \n " \
@@ -10,12 +12,11 @@ def start_chat():
         menu_choice = int(raw_input(menu_choices))
 
         if menu_choice == 1:
-            print('status')
-            status_message()
+            current_status_message = status_message(current_status_message)
 
         elif menu_choice == 2:
-            #to add friends
-            print('Add a friends')
+            number_of_friends = add_friend()
+            print('You have %d friends' % number_of_friends)
 
         elif menu_choice == 3:
             # send a secret message
