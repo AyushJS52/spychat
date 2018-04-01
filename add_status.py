@@ -3,7 +3,7 @@ from spy_details import status
 
 
 def status_message(current_status_message):
-
+    #check current status message
     if current_status_message != None:
         print('Your current status message is %s \n' % current_status_message)
     else:
@@ -13,7 +13,7 @@ def status_message(current_status_message):
         if question.upper() == "N":
             new_status_message = raw_input("What status message do you want to set?: ")
 
-            # validating users input.
+            # validating users raw_input.
             if len(new_status_message) > 0:
                 # adding new status to default status or older status list.
                 status.append(new_status_message)
@@ -37,7 +37,7 @@ def status_message(current_status_message):
             # asking users choice which index of list he wants to choose
             message_selection = int(raw_input("\nChoose from the Index of status: "))
 
-            # validating users input and set status of choice if exist.
+            # validating users raw_input and set status of choice if exist.
             if len(status) >= message_selection:
                 # updating
                 updated_status_message = status[message_selection - 1]

@@ -2,10 +2,13 @@ from spy_details import User, friends
 
 
 def add_friend():
+    # using class user in spy_details
     new_friend = User(" ", " ", 0, 0.0)
 
+    # ask user for name
     new_friend.name = raw_input("Please add your friend's name: ")
 
+    # user name validation.
     if len(new_friend.name) > 0:
         if len(new_friend.name) > 20:
             print("Your name length is big.")
@@ -41,7 +44,7 @@ def add_friend():
     if new_friend.rating > 0.0:
         True
     else:
-        print("Rating should be more than 0.0")
+        print("Ratting should be more than 0.0")
         return add_friend()
 
     # add friend if all conditions check
