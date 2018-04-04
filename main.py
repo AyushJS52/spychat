@@ -11,9 +11,6 @@ STATUS_MESSAGES = ['My name is Ayush', "Live and Let Die",
 # Let's start by greeting.
 print("Hello!")
 
-# How to use escape sequences
-print "Let\'s get started!"
-
 # Ask the spy whether he wants to continue with the default spy or create a new user
 question = "Do you want to continue as the default user-" + spy.salutation + " " + spy.name + " or create a new user? (Y/N): "
 existing = raw_input(question,)
@@ -21,7 +18,6 @@ existing = raw_input(question,)
 
 # Adding a status
 def add_status():
-    # in the beginning no status message
     updated_status_message = None
 
     # check if current status message is set or not
@@ -33,7 +29,6 @@ def add_status():
     # Asking if the user wants to select a default status or a status which is already present
     default = raw_input("Do you want to select from the older status (y/n)? ")
 
-    # A spy wants to add another status rather from the existing one
     # .upper() converts from any case to upper case
     if default.upper() == "N":
         # ask the user to enter a new status
@@ -43,7 +38,6 @@ def add_status():
         if len(new_status_message) > 0:
             # in the existing status list add the new status
             STATUS_MESSAGES.append(new_status_message)
-            # variable update
             updated_status_message = new_status_message
 
     # A spy wants to choose from the existing status
@@ -52,7 +46,7 @@ def add_status():
         # To give an index number to the statuses
         item_position = 1
 
-        # To show all the default statuses so that the user can select
+        # To show all the default statuses
         for message in STATUS_MESSAGES:
             print '%d. %s' % (item_position, message)
             item_position = item_position + 1
@@ -60,9 +54,8 @@ def add_status():
         # Ask the user which index of the list he wants to choose.
         message_selection = int(raw_input("\nChoose the index of the status: "))
 
-        # Check if the position exists and then only set it
+        # Check if the position exists
         if len(STATUS_MESSAGES) >= message_selection:
-            # Variable update
             updated_status_message = STATUS_MESSAGES[message_selection - 1]
 
     # When the user chooses neither yes nor no
@@ -89,8 +82,7 @@ from spy_details import Spy, friends
 def add_friend():
     # using class user in spy_details
     new_friend = Spy(" ", " ", 0, 0.0)
-
-    # ask user for name
+    
     new_friend.name = raw_input("Please add your friend's name: ")
 
     # user name validation.
@@ -111,7 +103,7 @@ def add_friend():
         print("Salutation empty or check length")
         return add_friend()
 
-    # concatination for full name
+    # concatination
     new_friend.name = new_friend.salutation + " " + new_friend.name
 
     # ask for age of friend
@@ -167,13 +159,13 @@ def select_a_friend():
 
 # Function to send a secret message
 def send_a_message():
-    # Select a friend to whom you want to communicate with
+    # Select a friend
     friend_choice = select_a_friend()
 
-    # Select the image in which you want to write a secret message
+    # Select the image
     original_image = raw_input("What is the name of the image?: ")
 
-    # the output path of the image where the message is stored
+    # the output path of the image
     output_path = "output.jpg"
     # write the secret message
     text = raw_input("What do you want to say? ")
@@ -189,18 +181,6 @@ def send_a_message():
 
     # After the encoding is done the message is ready.
     print("Your secret message image is ready!")
-
-
-# Function to send a message of help in case of an emergency
-def send_message_help():
-    # Select the friend who had sent the emergency message
-    friend_choice = select_a_friend()
-    # Send the helping message text to the friend in emergency
-    text = "I am coming to save you. Don't worry "
-    # The message will be added in the chat
-    new_chat = ChatMessage(text, True)
-    # Add the message to the one who said.
-    friends[friend_choice].chats.append(new_chat)
 
 
 # Read the secret message sent by a friend.
@@ -226,9 +206,6 @@ def start_chat(spy):
         print("Your age:" + str(spy.age))
         print("Your rating:"+str(spy.rating))
         print("Bravo!Proud to have you on board.")
-
-        # Can be done in this way also print "Authentication complete. Welcome %s, age: %d and rating of: %.2f.Proud
-        # to have you on board" % (spy.name, spy.age, spy.rating)
 
         show_menu = True
         while show_menu:
@@ -331,7 +308,7 @@ elif existing.upper() == "N":
                         # Make the spy come online
                         spy.is_online = True
 
-                        # Call the start_chat function to start(the function will authenticate the user)
+                        # Call the start_chat function to start
                         start_chat(spy)
 
                     # If spy rating is not entered
