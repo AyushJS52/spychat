@@ -1,25 +1,25 @@
-####### Information Of A Default User #######
+# Importing datetime to display the chat time and date
 from datetime import datetime
 
-# default status
-current_status_message = None
-
-# list of default status
-status = ['My name is Ayush.', 'MRIU']
+# made a class for spy
 
 
-class User:
-    # create class
-    def __init__(self, uname, salutation, age, rating):
-        self.uname = uname
+class Spy:
+
+    def __init__(self, name, salutation, age, rating):
+        # Initializing the values
+        self.name = name
         self.salutation = salutation
         self.age = age
         self.rating = rating
         self.is_online = True
         self.chats = []
         self.current_status_message = None
+        # Count the number of words
+        self.count = 0
 
 
+# a class for chat_messages
 class ChatMessage:
     def __init__(self, message, sent_by_me):
         self.message = message
@@ -27,14 +27,11 @@ class ChatMessage:
         self.sent_by_me = sent_by_me
 
 
-# define user_name, age, rating
-user_1 = User('Ayush', 'Mr.', 19, 3.7)
+spy = Spy('Ayush', 'Mr.', 20, 5)
 
+friend_one = Spy('Vivek', 'Mr.', 27, 6)
+friend_two = Spy('Purab', 'Mr.', 21, 5.39)
+friend_three = Spy('Shivam', 'Mr.', 27, 5.95)
 
-# details of some existing friends
-friend_one = User('Lowe', 'Mr.', 21, 4.1)
-friend_two = User('Purab', 'Mr.', 20, 3.9)
-friend_three = User('Shivam', 'Mr.', 21, 3.7)
-
-# lists of friends
+# List of friends
 friends = [friend_one, friend_two, friend_three]
