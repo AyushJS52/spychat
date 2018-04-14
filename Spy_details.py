@@ -1,37 +1,27 @@
-# Importing datetime to display the chat time and date
-from datetime import datetime
-
-# made a class for spy
-
-
+# creating class
 class Spy:
-
-    def __init__(self, name, salutation, age, rating):
-        # Initializing the values
-        self.name = name
+    def __init__(self,name,salutation,age,rating):
+        self.name= name
         self.salutation = salutation
-        self.age = age
-        self.rating = rating
-        self.is_online = True
-        self.chats = []
-        self.current_status_message = None
-        # Count the number of words
-        self.count = 0
+        self.age= age
+        self.rating= rating
+        self.is_online=True
+        self.chats=[]
+        self.current_status_message= None
 
-
-# a class for chat_messages
+# chats between spies
 class ChatMessage:
-    def __init__(self, message, sent_by_me):
-        self.message = message
-        self.time = datetime.now()
-        self.sent_by_me = sent_by_me
+        def __init__(self, spy_name, friend_name, time, message):
+            self.spy_name = spy_name
+            self.friend_name = friend_name
+            self.time = time
+            self.message = message
 
 
-spy = Spy('Ayush', 'Mr.', 20, 5)
+# define spy_name, age, rating)
+spy_1=Spy('Ayush Jaiswal','Mr',20,3.3)
 
-friend_one = Spy('Vivek', 'Mr.', 27, 6)
-friend_two = Spy('Purab', 'Mr.', 21, 5.39)
-friend_three = Spy('Shivam', 'Mr.', 27, 5.95)
-
-# List of friends
-friends = [friend_one, friend_two, friend_three]
+# lists of friends
+friends=[]
+# list of chats
+chats = []
